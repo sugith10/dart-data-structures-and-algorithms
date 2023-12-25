@@ -2,20 +2,25 @@ main() {
 
 
   
-  List<int> fibNums = Solution().fib(5);
+  // List<int> fibNums = Solution().fib(5);
 
-  print(fibNums);
+  // print(fibNums);
 
   // List<int> names = [10,20,40,50,60];
 
 //   List<String> strs = ["flower","flow","flight"];
 //  print( Solution().longestCommonPrefix(strs));
 
+  List<int> numbers = [10,11,23,23,23,53,64,66,69];
 
+//  numbers = numbers.toSet().toList();
+
+  // print(numbers);
 
 }
 
 class Solution {
+
 
    List<int> fib(int n) {
     List<int> numbers = [];

@@ -147,7 +147,7 @@ class LinkedList{
       }
     }
   }
-
+  
 
 }
 
@@ -174,13 +174,13 @@ main(){
   list.addNode(50);
   list.addNode(60);
   // list.sortedListDel();
-  list.sortedListDelete();
+  // list.sortedListDelete();
   // list.delete(20);
   // list.display();
   // list.insertAt(30, 35);
-  list.display();
+  // list.display();
   list.addToList(numbers);
   print(numbers);
-  // print('list backward');
+  // print('list backward');        
   // list.displayBackward();
 }
