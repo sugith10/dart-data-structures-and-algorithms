@@ -1,7 +1,6 @@
 class InsertionSort{
   method(List<int> nums,){
     for(int i=0; i<nums.length;i++){
-      // if(nums[i]>nums[i+1]){
         int current = nums[i]; 
         int j = i-1;
         while(j >= 0 && nums[j] > current){
@@ -9,8 +8,6 @@ class InsertionSort{
           j--;
         }
         nums[j+1] = current;
-         
-      // }
     }
     return nums;
   }

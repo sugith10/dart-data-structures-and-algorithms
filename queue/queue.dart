@@ -1,5 +1,3 @@
-import '../stack/stack.dart';
-
 class Node{
   int? data;
   Node? next;

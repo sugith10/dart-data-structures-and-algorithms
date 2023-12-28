@@ -1,38 +1,38 @@
-void quickSort(List<int> list, int left, int right) {
-  if (left < right) {
-    int pivotIndex = partition(list, left, right);
-    quickSort(list, left, pivotIndex - 1);
-    quickSort(list, pivotIndex + 1, right);
+void quickSort(List<int> arr, int low, int high) {
+  if (low < high) {
+    int pi = partition(arr, low, high);
+    quickSort(arr, low, pi - 1);
+    quickSort(arr, pi + 1, high);
   }
 }
 
-int partition(List<int> list, int left, int right) {
-  int pivot = list[right];
-  int i = (left - 1); // Index of smaller element
-
-  for (int j = left; j < right; j++) {
-    if (list[j] <= pivot) {
-      i++;
-      // Swap list[i] and list[j]
-      int temp = list[i];
-      list[i] = list[j];
-      list[j] = temp;
+int partition(List<int> arr, int low, int high) {
+  int pivot = arr[low];
+  int k = high;
+  
+  for (int i = high; i > low; i--) {
+    if (arr[i] > pivot) {
+      int temp = arr[i];
+      arr[i] = arr[k];
+      arr[k] = temp;
+      k--;
     }
   }
 
-  // Swap list[i+1] and list[right] (or pivot)
-  int temp = list[i + 1];
-  list[i + 1] = list[right];
-  list[right] = temp;
+  int temp = arr[k];
+  arr[k] = arr[low];
+  arr[low] = temp;
 
-  return i + 1;
+  return k;
 }
 
 void main() {
-  List<int> numbers = [64, 34, 25, 12, 22, 11, 90];
-  print("Unsorted Array: $numbers");
+  List<int> arr = [1, 2, 9, 1, 5, 1];
+  print("Unsorted List: $arr");
 
-  quickSort(numbers, 0, numbers.length - 1);
-
-  print("Sorted array in ascending order: $numbers");
+  quickSort(arr, 0, arr.length - 1);
+  
+  print("Sorted List: $arr");
 }
+
+
