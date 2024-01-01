@@ -5,7 +5,9 @@ class Stack {
   }
 
   pop() {
+    int k = listStack.last;
     listStack.removeLast();
+    return k;
   }
 
   peekAll() {
@@ -13,6 +15,50 @@ class Stack {
       print('empty');
     } else {
       print(listStack);
+    }
+  }
+
+// void reverse() {
+//     if (listStack.isNotEmpty) {
+//       int k = pop();
+//       reverse();
+//       insertAtBottom(k);
+//     }
+//   }
+
+//   void insertAtBottom(int data) {
+//     if (listStack.isEmpty) {
+//       push(data);
+//     } else {
+//       int k = pop();
+//       insertAtBottom(data); // Recursively insert at bottom
+//       push(k); // Push the element back onto the stack
+//     }
+//   }
+
+  List<int> temp = [];
+
+  reverse() {
+    if (listStack.length > 0) {
+      int k = pop();
+      temp.add(k);
+      reverse();
+    }
+    return temp;
+  }
+
+  newAdd() {
+    listStack = reverse();
+  }
+
+ int i =0;
+
+  newFindAll(List<int> arr){
+   
+    if(i<arr.length){
+      print(arr[i]);
+      i++;
+      newFindAll(arr);
     }
   }
 }
@@ -26,4 +72,7 @@ main() {
   stack.push(99);
   stack.pop();
   stack.peekAll();
+  stack.newAdd();
+  stack.peekAll();
+  stack.newFindAll(stack.listStack);
 }

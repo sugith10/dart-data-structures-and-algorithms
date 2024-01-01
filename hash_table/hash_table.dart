@@ -1,94 +1,94 @@
-class Node {
-  int key;
-  dynamic value;
+class Node{
+  String key;
+  dynamic data;
   Node? next;
-
-  Node(this.key, this.value);
+  Node(this.key, this.data);
 }
 
-// HashTable class represents a simple hash table with chaining
-class HashTable {
-  List<Node?> _table;
-
-  // Constructor initializes the hash table with a specified size
-  HashTable(int size)
-      : _table = List.generate(size, (index) => null);
-
-  // A simple hash function to determine the index
-  int _hashFunction(int key) {
-    return key % _table.length;
+class HashTable{
+  List<Node?>? table ;
+  int size;
+  HashTable(this.size){
+    table = List.generate(size, (index) => null);
   }
 
-  // Insert a key-value pair into the hash table
-  void insert(int key, dynamic value) {
-    int index = _hashFunction(key);
-    // Check if the bucket is empty
-    if (_table[index] == null) {
-      _table[index] = Node(key, value);
-    } else {
-      // Collision handling: Chaining
-      Node newNode = Node(key, value);
-      newNode.next = _table[index];
-      _table[index] = newNode;
+  add(String key, dynamic data){
+    int index = key.hashCode % size;
+    Node newNode = Node(key, data);
+    if(table?[index] == null){
+      table?[index] = newNode;
+    }else{
+      newNode.next =  table?[index];
+       table?[index] = newNode;
     }
   }
 
-  // Search for a key and return its corresponding value
-  dynamic search(int key) {
-    int index = _hashFunction(key);
-
-    // Traverse the linked list at the specified index
-    Node? current = _table[index];
-    while (current != null) {
-      if (current.key == key) {
-        return current.value; // Key found
+  remove(String key){
+    int index = key.hashCode % size;
+    if(table?[index] != null){
+      if(table?[index]?.next == null){
+        table?[index] = null;
+        print('element removed');
+        return;
+      }else{
+        Node? temp = table?[index];
+        Node? prev;
+        while(temp != null){
+          if(temp.key == key){
+            prev?.next = temp.next;
+            print('removed');
+            return;
+          }
+          prev = temp;
+          temp = temp.next;
+        }
       }
-      current = current.next;
+    }else{
+      print('value not found');
     }
-
-    return null; // Key not found
   }
 
-  // Delete a key and its corresponding value from the hash table
-  void delete(int key) {
-    int index = _hashFunction(key);
+  get(String key){
+     int index = key.hashCode % size;
+     if(table?[index] == null){
+      print('empty');
+     }else{
+      print(table?[index]?.data);
+     }
+  }
 
-    // Delete from the linked list at the specified index
-    Node? current = _table[index];
-    Node? previous;
-
-    while (current != null && current.key != key) {
-      previous = current;
-      current = current.next;
-    }
-
-    if (current != null) {
-      // If the key is found, remove it from the linked list
-      if (previous != null) {
-        previous.next = current.next;
-      } else {
-        _table[index] = current.next;
+  getAll(table){
+    for(int i =0; i<table.length; i++){
+      if(table[i] != null){
+        print('At index $i = ${table?[i].data } ');
+      }else{
+        print('At index $i there is no value found');
       }
     }
   }
+
+  void update(String key, dynamic newData) {
+  int index = key.hashCode % size;
+  Node? temp = table?[index];
+  while (temp != null) {
+    if (temp.key == key) {
+      temp.data = newData;
+      print('Value updated');
+      return;
+    }
+    temp = temp.next;
+  }
+  print('Value not found');
 }
 
-void main() {
-  // Create a hash table with a size of 10
-  HashTable hashTable = HashTable(1);
+}
 
-  // Insert key-value pairs
-  hashTable.insert(1, "John");
-  hashTable.insert(2, "Doe");
-  hashTable.insert(11, "Jane");
-
-  // Search for keys and print the results
-  print(hashTable.search(1)); // Output: John
-  print(hashTable.search(11)); // Output: Jane
-
-  // Delete a key-value pair
-  hashTable.delete(2);
-
-  // Search for the deleted key and print the result
-  print(hashTable.search(2)); // Output: null (not found)
+main(){
+  HashTable hashTable = HashTable(5);
+  hashTable.add('sugith', 24);
+  hashTable.add('rocky', 29);
+  hashTable.add('ram', 21);
+  hashTable.remove('ram');
+  hashTable.get('sugith');
+  hashTable.getAll(hashTable.table);
 }

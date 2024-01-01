@@ -33,9 +33,10 @@ class Queue{
     }else{
       head = head?.next;
     }
-
     display();
   }
+
+  
 }
 
 main(){

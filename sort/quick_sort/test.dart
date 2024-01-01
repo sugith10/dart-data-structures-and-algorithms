@@ -1,70 +1,35 @@
+quick(List<int> arr, int low, int high){
+  if(low<high){
+    int pi = partition(arr, low, high);
 
-// main(){
-//   List<int> nums = [10,23,7,8,87];
-//   quick(nums, 0, nums.length-1);
-//   print(nums);
-// }
-
-// quick(List<int> nums, int low, int high){
-//   if(low<high){
-//     int pi = partition(nums, low, high);
-
-//     quick(nums, pi+1, high);
-//     quick(nums, low, pi-1);
-//   }
-// }
-
-// partition(List<int> nums, int low, int high){
-//   int pivot = nums[low];
-//   int k = high;
-//   for(int i = high; i>low; i--){
-//     if(nums[i] > pivot){
-//       int temp = nums[i];
-//       nums[i] = nums[k];
-//       nums[k] = temp;
-//       k--;
-//     }
-//   }
-
-//   int temp = nums[k];
-//   nums[k] = nums[low];
-//   nums[low] = temp;
-  
-//   return k;
-// }
-
-
-void main() {
-  List<int> nums = [11, 23, 7, 8, 87];
-  quick(nums, 0, nums.length - 1);
-  print(nums);
-}
-
-void quick(List<int> nums, int low, int high) {
-  if (low < high) {
-    int pi = partition(nums, low, high);
-
-    quick(nums, pi + 1, high);
-    quick(nums, low, pi - 1);
+    quick(arr, pi+1, high);
+    quick(arr, low, pi-1);
   }
 }
 
-int partition(List<int> nums, int low, int high) {
-  int pivot = nums[high]; 
-  int i = low-1;
+partition(List<int> arr, int low, int high){
+  int pivot = arr[low];
+  int k = high;
 
-  for (int j = low; j < high; j++) {
-    if (nums[j] > pivot) {
-      i++;
-      int temp = nums[i];
-      nums[i] = nums[j];
-      nums[j] = temp;
+  for(int i= high; i>=low; i--){
+    if(arr[i] > pivot){
+      int temp = arr[k];
+      arr[k] = arr[i];
+      arr[i] = temp;
+      k--;
     }
   }
 
-  int temp = nums[i + 1];
-  nums[i + 1] = nums[high];
-  nums[high] = temp;
+int temp = arr[k];
+  arr[k] = arr[low];
+  arr[low] = temp;
 
-  return i + 1;
+  return k;
+}
+
+
+main(){
+  List<int> nums = [10,20,12,4,5,123,5];
+  quick(nums, 0, nums.length -1);
+  print(nums);
 }

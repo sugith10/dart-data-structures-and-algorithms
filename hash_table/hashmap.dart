@@ -53,8 +53,6 @@ class HashTable {
       print('Not found $key');
     }
   }
-
-
 }
 
 main(){

@@ -10,7 +10,7 @@ int partition(List<int> arr, int low, int high) {
   int pivot = arr[low];
   int k = high;
   
-  for (int i = high; i > low; i--) {
+  for (int i = high; i >= low; i--) {
     if (arr[i] > pivot) {
       int temp = arr[i];
       arr[i] = arr[k];

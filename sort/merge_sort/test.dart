@@ -1,36 +1,35 @@
-main(){
-  List<int> nums = [10,2,53,1,77];
+merge(List<int> nums){
+  if(nums.length > 1){
+    int mid = nums.length ~/ 2;
 
-  merge(nums);
-  print(nums);
-}
+    List<int> first = nums.sublist(0,mid);
+    List<int> second = nums.sublist(mid);
 
-  merge(List<int> nums){
-    if(nums.length > 1){
-      int mid = nums.length ~/ 2;
+    merge(first);
+    merge(second);
 
-      List<int> first = nums.sublist(0,mid);
-      List<int> second = nums.sublist(mid);
+    int i=0, j=0, k=0;
 
-      merge(first);
-      merge(second);
-
-      int i=0,j=0,k=0;
-
-      while(i<first.length && j<second.length){
-        if(first[i]<second[j]){
-          nums[k++] = first[i++];
-        }else{
-          nums[k++] = second[j++];
-        }
-      }
-
-      while(i<first.length){
+    while(i<first.length && j<second.length){
+      if(first[i]<second[j]){
         nums[k++] = first[i++];
-      }
-
-      while(j<second.length){
+      }else{
         nums[k++] = second[j++];
       }
     }
+
+    while(i<first.length){
+      nums[k++] = first[i++];
+    }
+
+    while(j<second.length){
+      nums[k++] = second[j++];
+    }
   }
+}
+
+main(){
+  List<int> nums = [10,2,523,83,9];
+  merge(nums);
+  print(nums);
+}

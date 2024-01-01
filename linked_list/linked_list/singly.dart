@@ -143,7 +143,20 @@ class LinkedList {
   }
 
 
+  reverse(){
+    Node? current = head;
+    Node? prev;
+    Node? next;
 
+    while(current != null){
+      next = current.next;
+      current.next = prev;
+      prev = current;
+      current = next;
+    }
+    head = prev;
+    display();
+  }
   
 }
 
@@ -182,7 +195,7 @@ main() {
 
     listToLinked();
 
-    list.display();
+    list.reverse();
 
 }
 

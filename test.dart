@@ -236,20 +236,84 @@
 // }
 
 
-main(){
-  List<int> nums = [10,2,534,21,1,7];
+// main(){
+//   List<int> nums = [10,2,534,21,1,7];
 
-  for(int i=0; i<nums.length; i++){
-    int current = nums[i];
-    int j = i-1;
-    while(j>=0 && nums[j] > current){
-      int temp = nums[j];
-      nums[j] = nums[j+1];
-      nums[j+1] = temp;
-      j--;
-    }
-    nums[j+1] = current;
-  }
+//   for(int i=0; i<nums.length; i++){
+//     int current = nums[i];
+//     int j = i-1;
+//     while(j>=0 && nums[j] > current){
+//       int temp = nums[j];
+//       nums[j] = nums[j+1];
+//       nums[j+1] = temp;
+//       j--;
+//     }
+//     nums[j+1] = current;
+//   }
 
-  print(nums);
-}
+//   print(nums);
+// }
+
+
+// bool isValid(String s) {
+
+//   List<String> stack = [];
+
+
+//   Map<String, String> parenthesesMap = {
+//     ')': '(',
+//     '}': '{',
+//     ']': '[',
+//   };
+
+
+//   for (int i = 0; i < s.length; i++) {
+//     String currentChar = s[i];
+
+ 
+//     if (parenthesesMap.containsKey(currentChar)) {
+
+//       String topElement = stack.isEmpty ? '#' : stack.removeLast();
+
+ 
+//       if (topElement != parenthesesMap[currentChar]) {
+//         return false;
+//       }
+//     } else {
+   
+//       stack.add(currentChar);
+//     }
+//   }
+
+ 
+//   return stack.isEmpty;
+// }
+
+// void main() {
+
+//   print(isValid("()")); 
+//   print(isValid("()[]{}")); 
+//   print(isValid("(]")); 
+//   print(isValid("([)]")); 
+//   print(isValid("{[]}"));
+// }
+
+// int countSubstrings(String mainString, String substring) {
+//   int count = 0;
+
+//   for (int i = 0; i <= mainString.length - substring.length; i++) {
+//     if (mainString.substring(i, i + substring.length) == substring) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
+// void main() {
+//   String mainString = "abababab";
+//   String substring = "ab";
+
+//   int result = countSubstrings(mainString, substring);
+//   print("Count of '$substring' in '$mainString': $result");
+// }
