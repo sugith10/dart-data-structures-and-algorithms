@@ -1,3 +1,6 @@
+import 'dart:io';
+
+
 class Node {
   int data;
   Node? left, right;
@@ -31,7 +34,7 @@ class BST {
               temp.left = newNode;
               print('new one added to the left');
               return;
-            }else{
+            } else {
               temp = temp.left;
             }
           }
@@ -40,19 +43,19 @@ class BST {
     }
   }
 
-  search(int data){
-    if(root == null){
+  search(int data) {
+    if (root == null) {
       print('root is null');
-    }else{
-      Node?  temp = root;
-      while(temp != null){
-        if(temp.data == data){
+    } else {
+      Node? temp = root;
+      while (temp != null) {
+        if (temp.data == data) {
           print('value found');
           return;
-        }else{
-          if(data > temp.data){
+        } else {
+          if (data > temp.data) {
             temp = temp.right;
-          }else{
+          } else {
             temp = temp.left;
           }
         }
@@ -61,64 +64,147 @@ class BST {
     }
   }
 
+  // delete(int data) {
+  //   if (root == null) {
+  //     print('Root is null.');
+  //   } else {
+  //     root = _remove(root, data);
+  //   }
+  // }
+  // Node? _remove(Node? root, int data) {
+  //   if (root == null) {
+  //     return root;
+  //   }
+  //   if (data < root.data) {
+  //     root.left = _remove(root.left, data);
+  //   } else if (data > root.data) {
+  //     root.right = _remove(root.right, data);
+  //   } else {
+  //     if (root.left == null) {
+  //       return root.right;
+  //     } else if (root.right == null) {
+  //       return root.left;
+  //     }
+  //     // Node with two children, get the inorder successor
+  //     root.data = _minValue(root.right!);
+  //     // Delete the inorder successor
+  //     root.right = _remove(root.right, root.data);
+  //   }
+  //   return root;
+  // }
+  // int _minValue(Node node) {
+  //   int minValue = node.data;
+  //   while (node.left != null) {
+  //     minValue = node.left!.data;
+  //     node = node.left!;
+  //   }
+  //   return minValue;
+  // }
 
- delete(int data) {
-    if (root == null) {
-      print('Root is null.');
-    } else {
-      root = _remove(root, data);
+  //traverse
+inOrder(Node? root){
+  print('');
+    inOrderTraversal(root);
+}
+ inOrderTraversal(Node? root) {
+    if (root != null) {
+      inOrderTraversal(root.left);
+     stdout.write('${root.data} ');
+      inOrderTraversal(root.right);
     }
   }
 
-  Node? _remove(Node? root, int data) {
-    if (root == null) {
-      return root;
-    }
 
-    if (data < root.data) {
-      root.left = _remove(root.left, data);
-    } else if (data > root.data) {
-      root.right = _remove(root.right, data);
-    } else {
-      if (root.left == null) {
-        return root.right;
-      } else if (root.right == null) {
-        return root.left;
+  void preOrderTraversal(Node? root) {
+    if (root != null) {
+      // print(root.data , end='');
+      stdout.write(root.data);
+      preOrderTraversal(root.left);
+      preOrderTraversal(root.right);
+    }
+  }
+
+  void postOrderTraversal(Node? root) {
+    print(' ');
+    if (root != null) {
+      postOrderTraversal(root.left);
+      postOrderTraversal(root.right);
+      stdout.write(root.data );
+    }
+  }
+
+  bstOrNot(Node? root) {
+    int k = 0;
+    inOrder(Node? root) {
+      if (root != null) {
+        inOrder(root.left);
+        if (k > root.data) {
+          print('its not bst');
+          return false;
+        }
+        inOrder(root.right);
       }
-
-      // Node with two children, get the inorder successor
-      root.data = _minValue(root.right!);
-
-      // Delete the inorder successor
-      root.right = _remove(root.right, root.data);
     }
+    print('its bst');
+    return true;
+  }
 
+  //delete bst
+  delete(root, int value){
+    if(root == null){
+      print('root is null');
+    }else{
+      if(value < root.data){
+        delete(root.left, value);
+      }else if(value > root.data){
+        delete(root.right,  value);
+      }else{
+        if(root.left == null){
+          return root.right;
+        }else if(root.right == null){
+          return root.left;
+        }
+        root.data = findMinNode(root.right).data;
+        root.right = delete(root.right, root.data);
+      }
+    }
     return root;
   }
 
-  int _minValue(Node node) {
-    int minValue = node.data;
-    while (node.left != null) {
-      minValue = node.left!.data;
-      node = node.left!;
+  findMinNode(root){
+    while(root.left != null){
+      root = root.left;
     }
-    return minValue;
+    return root;
   }
 
+  
 }
 
-main(){
+main() {
   BST bst = BST();
-  bst.add(34);
-  bst.add(86);
-  bst.add(299);
-  bst.add(23);
   bst.add(99);
+  bst.add(150);
+  bst.add(70);
+  bst.add(23);
+  bst.add(79);
+  bst.add(24);
+  bst.add(22);
+  bst.add(87);
+  bst.add(75);
+  bst.add(210);
+  bst.add(180);
+  bst.add(170);
+  bst.add(175);
+  bst.add(90);
+  bst.add(88);
   bst.add(11);
-
-  bst.search(23);
-  // bst.search(700);
-  bst.delete(23);
-  bst.search(23);
-  bst.search(11);
+  bst.add(3);
+  bst.add(1);
+  bst.add(2);
+  bst.add(14);
+  // bst.bstOrNot(bst.root);
+  bst.inOrder(bst.root);
+  // bst.preOrderTraversal(bst.root);
+  // bst.postOrderTraversal(bst.root);
 }
