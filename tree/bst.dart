@@ -42,6 +42,10 @@ class BST{
     }
   }
 
+  delete(){
+    
+  }
+
 }
 
 

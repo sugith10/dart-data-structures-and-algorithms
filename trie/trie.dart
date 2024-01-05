@@ -5,7 +5,7 @@ class TrieNode {
 
 class Trie {
   TrieNode root = TrieNode();
-
+  
   void insert(String word) {
     TrieNode current = root;
     for (int i = 0; i < word.length; i++) {

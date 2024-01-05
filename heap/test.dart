@@ -108,65 +108,66 @@
 // }
 
 
-class Heap{
-  List<int> maxHeap = [];
+// class Heap{
+//   List<int> maxHeap = [];
 
-  add(int data){
-    maxHeap.add(data);
-    heapify(maxHeap.length -1);
-  }
+//   add(int data){
+//     maxHeap.add(data);
+//     heapify(maxHeap.length -1);
+//   }
 
-  heapify(int index){
-    while(index > 0){
-      int parent = (index-1) ~/ 2;
-      if(maxHeap[parent] > maxHeap[index]){
-        swap(parent, index);
-      }else{
-        break;
-      }
-    }
-  }
+//   heapify(int index){
+//     while(index > 0){
+//       int parent = (index-1) ~/ 2;
+//       if(maxHeap[parent] > maxHeap[index]){
+//         swap(parent, index);
+//       }else{
+//         break;
+//       }
+//     }
+//   }
 
-  remove(){
-    int last = maxHeap.removeLast();
-    maxHeap[0] = last;
-    heapifyDown(0);
-  }
+//   remove(){
+//     int last = maxHeap.removeLast();
+//     maxHeap[0] = last;
+//     heapifyDown(0);
+//   }
 
-  heapifyDown(int index){
-    int max = index;
-    int left = (index * 2) + 1;
-    int right = (index * 2) + 2;
+//   heapifyDown(int index){
+//     int max = index;
+//     int left = (index * 2) + 1;
+//     int right = (index * 2) + 2;
 
-    if(left<maxHeap.length && maxHeap[left] < maxHeap[index]){
-      max = left;
-    } 
-    if(right < maxHeap.length && maxHeap[right] < maxHeap[index]){
-      max = right;
-    }
+//     if(left<maxHeap.length && maxHeap[left] < maxHeap[index]){
+//       max = left;
+//     } 
+//     if(right < maxHeap.length && maxHeap[right] < maxHeap[index]){
+//       max = right;
+//     }
 
-    if(max != index){
-      swap(index, max);
-      heapifyDown(max);
-    }
-  }
+//     if(max != index){
+//       swap(index, max);
+//       heapifyDown(max);
+//     }
+//   }
 
-  swap(int parent, int child){
-    int temp = maxHeap[parent];
-    maxHeap[parent] = maxHeap[child];
-    maxHeap[child] = temp;
-  }
-}
+//   swap(int parent, int child){
+//     int temp = maxHeap[parent];
+//     maxHeap[parent] = maxHeap[child];
+//     maxHeap[child] = temp;
+//   }
+// }
 
-main(){
-  Heap heap = Heap();
-  heap.add(328);
-  heap.add(38);
-  heap.add(97);
-  heap.add(92);
-  heap.add(908);
-  // heap.remove();
-  // print(heap.maxHeap);
-  // heap.remove();
-  print(heap.maxHeap);
-}
+// main(){
+//   Heap heap = Heap();
+//   heap.add(328);
+//   heap.add(38);
+//   heap.add(97);
+//   heap.add(92);
+//   heap.add(908);
+//   // heap.remove();
+//   // print(heap.maxHeap);
+//   // heap.remove();
+//   print(heap.maxHeap);
+// }
+
