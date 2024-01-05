@@ -53,7 +53,7 @@ class Trie {
 
   void _prefixHelper(TrieNode node, String currentPrefix, List<String> results) {
     if (node.isEndOfWord) {
-      results.add(currentPrefix);
+      results.add(currentPrefix); 
     }
     for (String char in node.children.keys) {
       _prefixHelper(node.children[char]!, currentPrefix + char, results);
