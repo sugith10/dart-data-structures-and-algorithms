@@ -23,21 +23,21 @@ class MaxHeap {
   }
 
 void remove() {
-  // Step 1: Remove the maximum value (root) from the heap
+
   int maxVal = heap.removeLast();
   
-  // Step 2: Replace the root with the last element
+
   heap[0] = maxVal;
   
-  // Step 3: Restore the heap property by performing heapifyDown
+
   heapifyDown(0);
 }
 
 void heapifyDown(int currentIdx) {
-  // Step 4: Initialize maxValIdx as the current index
+
   int maxValIdx = currentIdx;
   
-  // Step 5: Calculate the indices of the left and right children
+
   int leftIdx = 2 * currentIdx + 1;
   int rightIdx = 2 * currentIdx + 2;
 

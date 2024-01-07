@@ -171,3 +171,160 @@
 //   print(heap.maxHeap);
 // }
 
+// class Heap {
+//   List<int> heap = [];
+
+//   insert(int value) {
+//     heap.add(value);
+//     heapifyUp();
+//   }
+
+//   heapifyUp() {
+//     int currentIdx = heap.length - 1;
+
+//     while (currentIdx > 0) {
+//       int parentIdx = (currentIdx - 1) ~/ 2;
+
+//       if (heap[parentIdx] > heap[currentIdx]) {
+//         swap(parentIdx, currentIdx);
+//         currentIdx = parentIdx;
+//       } else {
+//         break;
+//       }
+//     }
+//   }
+
+//   swap(int parent, int child) {
+//     int temp = heap[child];
+//     heap[child] = heap[parent];
+//     heap[parent] = temp;
+//   }
+// }
+
+// void main() {
+//   Heap heap = Heap();
+//   heap.insert(10);
+//   heap.insert(12);
+//   heap.insert(9);
+//   heap.insert(3);
+//   print(heap.heap);
+// }
+
+
+class Heap{
+
+  List<int> heap = [];
+
+
+
+  insert(int value){
+
+    heap.add(value);
+
+    heapifyUp();
+  }
+
+
+
+  heapifyUp(){
+    int currentIdx = heap.length - 1;
+
+    while(currentIdx > 0 ){
+
+      int parnetIdx = (currentIdx-1)~/2;
+
+      if(heap[parnetIdx] > heap[currentIdx] ){
+
+        swap(parnetIdx, currentIdx);
+
+        currentIdx = parnetIdx;
+
+      }else{
+
+        break;
+
+      }
+
+    }
+
+  }
+
+  // remove(){
+  //   heap[0] = heap.removeLast();
+  //   heapfiDown(0);
+  // }
+
+  // heapfiDown(int currentIdx){
+  //   int minValdx = currentIdx;
+  //   int leftIdx = 2 * currentIdx + 1;
+  //   int rightIdx = 2 * currentIdx + 2;
+    
+  //   if(leftIdx < heap.length && heap[leftIdx] < heap[minValdx]){
+  //     minValdx = leftIdx;
+  //   }
+
+  //   if(rightIdx < heap.length && heap[rightIdx] < heap[minValdx]){
+  //     minValdx = rightIdx;
+  //   }
+
+  //   if(currentIdx != minValdx){
+  //     swap(currentIdx, minValdx);
+  //     heapfiDown(minValdx);
+
+  //   }
+    
+  // }
+
+
+
+
+  remove(){
+    heap[0] = heap.removeLast();
+    heapifyDown(0);
+  }
+
+  heapifyDown(int currentIdx){
+    int minValIdx = currentIdx;
+    int leftIdx = (currentIdx*2) + 1; 
+    int rightIdx = (currentIdx * 2) + 2;
+
+    if(leftIdx < heap.length && heap[leftIdx] < heap[minValIdx]){
+      minValIdx = leftIdx;
+    }
+
+    if(rightIdx < heap.length && heap[rightIdx] < heap[minValIdx]){
+      minValIdx = rightIdx;
+    }
+
+    if(minValIdx != currentIdx){
+      swap(minValIdx, currentIdx);
+      heapifyDown(minValIdx);
+    }
+  }
+
+  swap(int parent,int child){
+    int temp = heap[child];
+    heap[child] = heap[parent];
+    heap[parent] = temp;
+  }
+
+}
+
+main(){
+
+  Heap heap = Heap();
+
+  heap.insert(10);
+
+  heap.insert(12);
+
+  heap.insert(9);
+
+  heap.insert(3);
+  heap.remove();
+  print(heap.heap);
+  heap.remove();
+  print(heap.heap);
+
+}
+

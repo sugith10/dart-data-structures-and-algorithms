@@ -68,6 +68,7 @@ class BST {
     print('');
     inOrderTraversal(root);
   }
+
   inOrderTraversal(Node? root) {
     if (root != null) {
       inOrderTraversal(root.left);
@@ -76,11 +77,11 @@ class BST {
     }
   }
 
+  preOrder(Node? root) {
+    print('');
+    preOrderTraversal(root);
+  }
 
-preOrder(Node? root){
-  print('');
-   preOrderTraversal(root);
-}
   preOrderTraversal(Node? root) {
     if (root != null) {
       stdout.write(root.data);
@@ -88,11 +89,13 @@ preOrder(Node? root){
       preOrderTraversal(root.right);
     }
   }
-postOrder(Node? root){
-  print('');
-  postOrderTraversal(root);
-}
- postOrderTraversal(Node? root) {
+
+  postOrder(Node? root) {
+    print('');
+    postOrderTraversal(root);
+  }
+
+  postOrderTraversal(Node? root) {
     print(' ');
     if (root != null) {
       postOrderTraversal(root.left);
@@ -101,6 +104,7 @@ postOrder(Node? root){
     }
   }
 
+  //bst or not
   bstOrNot(Node? root) {
     int k = 0;
     inOrder(Node? root) {
@@ -124,9 +128,9 @@ postOrder(Node? root){
       print('root is null');
     } else {
       if (value < root.data) {
-       root.left = delete(root.left, value);
+        root.left = delete(root.left, value);
       } else if (value > root.data) {
-       root.right = delete(root.right, value);
+        root.right = delete(root.right, value);
       } else {
         if (root.left == null) {
           return root.right;
@@ -145,6 +149,30 @@ postOrder(Node? root){
       root = root.left;
     }
     return root;
+  }
+
+  //closest value
+   int closestValue(int target) {
+    if (root == null) {
+      print('BST is empty');
+    }
+
+    Node? current = root;
+    int closest = current!.data;
+
+    while (current != null) {
+      if ((target - closest).abs() > (target - current.data).abs()) {
+        closest = current.data;
+      }
+
+      if (target < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+
+    return closest;
   }
 }
 
@@ -171,10 +199,11 @@ main() {
   bst.add(2);
   bst.add(14);
   // bst.bstOrNot(bst.root);
-  bst.inOrder(bst.root);
-  // bst.preOrderTraversal(bst.root);
-  // bst.postOrderTraversal(bst.root);
-  bst.delete(bst.root, 87);
-  bst.delete(bst.root, 210);
-  bst.inOrder(bst.root);
+  // bst.inOrder(bst.root);
+  // // bst.preOrderTraversal(bst.root);
+  // // bst.postOrderTraversal(bst.root);
+  // bst.delete(bst.root, 87);
+  // bst.delete(bst.root, 210);
+  // bst.inOrder(bst.root);
+
 }
