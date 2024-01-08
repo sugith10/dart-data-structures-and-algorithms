@@ -305,3 +305,113 @@
 //   newGraph.addEdge(20, 67);
 //   newGraph.display();
 // }
+
+
+// class Graph{
+//   Map<int, List<int>> graph = {};
+
+//   insert(int data, int edge, [bool didir=false]){
+//     if(!graph.containsKey(data)){
+//       graph[data] = [];
+//     }
+//     if(!graph.containsKey(edge)){
+//       graph[edge] = [];
+//     }
+//     graph[data]!.add(edge);
+//     if(didir){
+//       graph[edge]!.add(data);
+//     }
+//   }
+
+//   bfs(int vertex){
+//     Set<int> visited = {};
+//     List<int> queue = [];
+
+//     queue.add(vertex);
+//     visited.add(vertex);
+
+//     while(queue.isNotEmpty){
+//       int current = queue[0];
+//       queue.removeAt(0);
+//       for(int i in graph[current]!){
+//         if(!visited.contains(i)){
+//           visited.add(i);
+//           queue.add(i);
+//         }
+//       }
+//     }
+//     print(visited);
+//   }
+
+//   dfs(int vertex){
+//     Set<int> visited = {};
+//     dfshelper(vertex, visited);
+//     print(visited);
+//   }
+
+//   dfshelper(int vertex, Set<int> visited){
+//     visited.add(vertex);
+//    for(int i in graph[vertex]!){
+//     if(!visited.contains(i)){
+//       dfshelper(i, visited);
+//     }
+//    }
+//   }
+
+// }
+
+// main(){
+//   Graph graph = Graph();
+//   graph.insert(10, 14);
+//   graph.insert(10, 18);
+//   graph.insert(10, 22);
+//   graph.insert(10, 33);
+//   graph.insert(10, 75);
+//   graph.insert(10, 5);
+//   graph.insert(22, 73);
+//   graph.insert(22, 90);
+//   // graph.bfs(10);
+//   // print(graph.graph);
+//   graph.dfs(10);
+// }
+
+// class Grap{
+//   Map<int,List<int>> graph = {};
+
+//   insert(int vertex, int edge, [bool bidir=false]){
+//     if(!graph.containsKey(vertex)){
+//       graph[vertex] = [];
+//     }
+//     if(!graph.containsKey(edge)){
+//       graph[edge] = [];
+//     }
+//     graph[vertex]!.add(edge);
+//   }
+
+//   dfs(int vertex){
+//     Set<int> visited = {};
+//     dfsHelper(vertex, visited);
+//     print(visited);
+//   }
+
+//   dfsHelper(int vertex, Set<int> visited){
+//     visited.add(vertex);
+//     for(int i in graph[vertex]!){
+//       if(!visited.contains(i)){
+//         dfsHelper(i, visited);
+//       }
+//     }
+//   }
+// }
+
+// main(){
+//   Grap graph = Grap();
+//   graph.insert(10, 56);
+//    graph.insert(3, 9);
+//     graph.insert(10, 3);
+//      graph.insert(10, 30);
+//      graph.insert(9, 75); 
+//      graph.insert(10, 99);
+//       graph.insert(10, 138);
+//       graph.dfs(10);
+// }

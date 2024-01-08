@@ -62,65 +62,114 @@
 
 //test2
 
-class Node{
-  int data;
-  Node? left,right;
-  Node(this.data);
-}
+// class Node{
+//   int data;
+//   Node? left,right;
+//   Node(this.data);
+// }
 
-class BST{
-  Node? root;
+// class BST{
+//   Node? root;
 
-  insert(int data){
-    Node newNode = Node(data);
-     if(root == null){
-      root = newNode;
-     }else{
-      Node? temp = root;
-      while(temp != null){
-        if(data < temp.data){
-          if(temp.left == null){
-            temp.left = newNode;
-            return;
-          }
-          temp = temp.left;
-        }else if(data > temp.data){
-          if(temp.right == null){
-            temp.right = newNode;
-            return;
-          }
-          temp = temp.right;
-        }
-      }
-     }
-  }
+//   insert(int data){
+//     Node newNode = Node(data);
+//      if(root == null){
+//       root = newNode;
+//      }else{
+//       Node? temp = root;
+//       while(temp != null){
+//         if(data < temp.data){
+//           if(temp.left == null){
+//             temp.left = newNode;
+//             return;
+//           }
+//           temp = temp.left;
+//         }else if(data > temp.data){
+//           if(temp.right == null){
+//             temp.right = newNode;
+//             return;
+//           }
+//           temp = temp.right;
+//         }
+//       }
+//      }
+//   }
 
-  inorder(Node? root){
-    if(root != null){
-      inorder(root.left);
-      print(root.data);
-      inorder(root.right);
-    }
-  }
+//   inorder(Node? root){
+//     if(root != null){
+//       inorder(root.left);
+//       print(root.data);
+//       inorder(root.right);
+//     }
+//   }
 
-  preorder(Node? root){
-    if(root != null){
-      print(root.data);
-      preorder(root.left);
-      preorder(root.right);
-    }
-  }
+//   preorder(Node? root){
+//     if(root != null){
+//       print(root.data);
+//       preorder(root.left);
+//       preorder(root.right);
+//     }
+//   }
 
-  postorder(Node? root){
-    if(root != null){
-      postorder(root.left);
-      postorder(root.right);
-      print(root.data);
-    }
-  }
+//   postorder(Node? root){
+//     if(root != null){
+//       postorder(root.left);
+//       postorder(root.right);
+//       print(root.data);
+//     }
+//   }
+
+// //   delete(int data, root){
+// //     if(data < root.data){
+// //       root.left = delete(data, root.left);
+// //     }else if(data > root.data){
+// //       root.right = delete(data, root.right);
+// //     }else{
+// //       if(root.left == null){
+// //         return root.right;
+// //       }else if(root.right == null){
+// //         return root.left;
+// //       }
+// //       int low = findLow(root.right).data;
+// //       root.right = delete(low, root.right);
+// //     }
+// //     return root;
+// //   }
+
+// //  findLow(Node? root){
+// //     while(root!= null){
+// //       root = root.left;
+// //     }
+// //     return root;
+// //   }
+
+//   // delete(int data, root){
+//   //   if(data < root.data){
+//   //     root.left = delete(data, root.left);
+//   //   }else if(data > root.data){
+//   //     root.right = delete(data, root.right);
+//   //   }else{
+//   //     if(root.left == null){
+//   //       return root.right;
+//   //     }else if(root.right == null){
+//   //       return root.left;
+//   //     }else{
+//   //       int low = findLow(root.right);
+//   //       root.right = delete(low, root.right);
+//   //     }
+//   //   }
+//   //   return root;
+//   // }
+
+//   // int findLow(Node? root){
+//   //   while(root != null){
+//   //     root = root.left;
+//   //   }
+//   //   return root!.data;
+//   // }
 
 //   delete(int data, root){
-//     if(data < root.data){
+//     if(data< root.data){
 //       root.left = delete(data, root.left);
 //     }else if(data > root.data){
 //       root.right = delete(data, root.right);
@@ -129,84 +178,127 @@ class BST{
 //         return root.right;
 //       }else if(root.right == null){
 //         return root.left;
+//       }else{
+//         int low = findLow(root.right).data;
+//         root.right = delete(low, root.right);
 //       }
-//       int low = findLow(root.right).data;
-//       root.right = delete(low, root.right);
 //     }
 //     return root;
 //   }
 
-//  findLow(Node? root){
-//     while(root!= null){
+//    findLow(root){
+//     while(root != null){
 //       root = root.left;
 //     }
 //     return root;
 //   }
+// }
 
-  // delete(int data, root){
-  //   if(data < root.data){
-  //     root.left = delete(data, root.left);
-  //   }else if(data > root.data){
-  //     root.right = delete(data, root.right);
-  //   }else{
-  //     if(root.left == null){
-  //       return root.right;
-  //     }else if(root.right == null){
-  //       return root.left;
-  //     }else{
-  //       int low = findLow(root.right);
-  //       root.right = delete(low, root.right);
-  //     }
-  //   }
-  //   return root;
-  // }
+// main(){
+//   BST bst = BST();
+//   bst.insert(10);
+//   bst.insert(12);
+//   bst.insert(16);
+//   bst.insert(19);
+//   bst.insert(8);
+//   bst.insert(9);
+//   bst.insert(192);
+//   bst.insert(123);
+//   // bst.inorder(bst.root);
+//   // bst.postorder(bst.root);
+//   bst.delete(19, bst.root);
+//   bst.inorder(bst.root);
 
-  // int findLow(Node? root){
-  //   while(root != null){
-  //     root = root.left;
-  //   }
-  //   return root!.data;
-  // }
+// }
+
+
+
+class Node{
+  int data;
+  Node? left,right;
+  Node(this.data);
+}
+
+class Tree{
+  Node? root;
+
+  insert(int data){
+    Node newNode = Node(data);
+    if(root == null){
+      root = newNode;
+    }else{
+      Node? current = root;
+      while(current != null){
+        if(data > current.data){
+          if(current.right == null){
+            current.right = newNode;
+            return;
+          }
+          current = current.right;
+        }else{
+          if(data< current.data){
+            if(current.left == null){
+              current.left = newNode;
+              return;
+            }
+            current = current.left;
+          }
+        }
+        
+      }
+    }
+  }
 
   delete(int data, root){
-    if(data< root.data){
-      root.left = delete(data, root.left);
-    }else if(data > root.data){
-      root.right = delete(data, root.right);
+    if(root == null){
+      print('empty');
     }else{
-      if(root.left == null){
-        return root.right;
-      }else if(root.right == null){
-        return root.left;
-      }else{
-        int low = findLow(root.right).data;
-        root.right = delete(low, root.right);
+      if(data > root.data){
+        root.right = delete(data, root.right);
       }
+      else if(data < root.data){
+        root.left = delete(data, root.left);
+      }else{
+        if(root.left == null){
+          return root.right;
+        }else if(root.right == null){
+          return root.left;
+        }else{
+          int k = findMin(root.right).data;
+          delete(k, root.right);
+        }
+
+      }
+
     }
     return root;
   }
 
-   findLow(root){
+  findMin(root){
     while(root != null){
       root = root.left;
     }
     return root;
   }
+
+  inOrder(root){
+    if(root != null){
+      inOrder(root.left);
+      print(root.data);
+      inOrder(root.right);
+    }
+  }
 }
 
-main(){
-  BST bst = BST();
-  bst.insert(10);
-  bst.insert(12);
-  bst.insert(16);
-  bst.insert(19);
-  bst.insert(8);
-  bst.insert(9);
-  bst.insert(192);
-  bst.insert(123);
-  // bst.inorder(bst.root);
-  // bst.postorder(bst.root);
-  bst.delete(19, bst.root);
-  bst.inorder(bst.root);
 
+main(){
+  Tree tree  = Tree();
+  tree.insert(10);
+  tree.insert(15);
+  tree.insert(17);
+  tree.insert(2);
+  tree.insert(7);
+  tree.insert(9);
+  tree.delete(7, tree.root);
+  tree.inOrder(tree.root);
 }

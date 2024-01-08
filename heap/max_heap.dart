@@ -41,17 +41,14 @@ void heapifyDown(int currentIdx) {
   int leftIdx = 2 * currentIdx + 1;
   int rightIdx = 2 * currentIdx + 2;
 
-  // Step 6: Check if the left child is within the heap and its value is greater
   if (leftIdx < heap.length && heap[leftIdx] > heap[maxValIdx]) {
     maxValIdx = leftIdx;
   }
 
-  // Step 7: Check if the right child is within the heap and its value is greater
   if (rightIdx < heap.length && heap[rightIdx] > heap[maxValIdx]) {
     maxValIdx = rightIdx;
   }
 
-  // Step 8: If the current index is not the maximum value index, swap and recursively heapifyDown
   if (currentIdx != maxValIdx) {
     swap(currentIdx, maxValIdx);
     heapifyDown(maxValIdx);
@@ -70,5 +67,5 @@ void main() {
   MaxHeap maxHeap = MaxHeap();
   maxHeap.insert([21, 3, 19, 5, 6]);
   maxHeap.remove();
-  print(maxHeap.heap); // Output: [19, 6, 3, 5]
+  print(maxHeap.heap);
 }

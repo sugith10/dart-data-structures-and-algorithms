@@ -1,1 +1,0 @@
- // bst.delete(19, bst.root);

@@ -47,15 +47,15 @@ class BST {
       print('root is null');
     } else {
       Node? temp = root;
-      while (temp != null) {
-        if (temp.data == data) {
-          print('value found');
+      while(temp != null){
+        if(temp.data == data){
+          print(' value found ');
           return;
-        } else {
-          if (data > temp.data) {
-            temp = temp.right;
-          } else {
+        }else{
+          if(data < temp.data){
             temp = temp.left;
+          }else{
+            temp = temp.right;
           }
         }
       }
@@ -153,27 +153,32 @@ class BST {
 
   //closest value
    int closestValue(int target) {
-    if (root == null) {
-      print('BST is empty');
-    }
-
-    Node? current = root;
-    int closest = current!.data;
-
-    while (current != null) {
-      if ((target - closest).abs() > (target - current.data).abs()) {
-        closest = current.data;
-      }
-
-      if (target < current.data) {
-        current = current.left;
-      } else {
-        current = current.right;
-      }
-    }
-
-    return closest;
+  if (root == null) {
+    print('BST is empty');
+    return -1; 
   }
+
+  Node? current = root;
+  int closest = current!.data;
+
+  while (current != null) {
+    if ((target - closest).abs() > (target - current.data).abs()) {
+      closest = current.data;
+    }
+
+    if (target < current.data) {
+      current = current.left;
+    } else if(target > current.data){
+      current = current.right;
+    }else{
+      break;
+    }
+  }
+
+  return closest;
+}
+
+
 }
 
 main() {
@@ -198,8 +203,12 @@ main() {
   bst.add(1);
   bst.add(2);
   bst.add(14);
+  
   // bst.bstOrNot(bst.root);
-  // bst.inOrder(bst.root);
+  bst.inOrder(bst.root);
+  print('');
+  bst.search(88);
+  // print(bst.closestValue(85));
   // // bst.preOrderTraversal(bst.root);
   // // bst.postOrderTraversal(bst.root);
   // bst.delete(bst.root, 87);

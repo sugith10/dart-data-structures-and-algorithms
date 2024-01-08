@@ -14,31 +14,33 @@ class Graph{
     }
   }
 
-  bfs(int vertex) {
-  if (!graph.containsKey(vertex)) {
-    print('Key not found');
-  } else {
-    Map<int, int> distance = {};
+    showEdges(int vertex) {
+    if (graph.containsKey(vertex)) {
+      print(graph[vertex]);
+    }else{
+      print('not found');
+    }
+  }
+
+   bfs(int vertex){
+    Set<int> visited = {};
     List<int> queue = [];
 
-    distance[vertex] = 0;
     queue.add(vertex);
+    visited.add(vertex);
 
-    while (queue.isNotEmpty) {
+    while(queue.isNotEmpty){
       int current = queue[0];
       queue.removeAt(0);
-
-      for (int i in graph[current]!) {
-        if (!distance.containsKey(i)) {
-          distance[i] = distance[current]! + 1;
+      for(int i in graph[current]!){
+        if(!visited.contains(i)){
+          visited.add(i);
           queue.add(i);
         }
       }
     }
-
-    print(distance);
+    print(visited);
   }
-}
 
 
   dfs(int vertex){

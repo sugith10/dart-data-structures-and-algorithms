@@ -60,41 +60,42 @@
   
 // }
 
-class TrieNode{
-  Map<String,TrieNode> collection = {};
-  bool end = false;
-}
+// class TrieNode{
+//   Map<String,TrieNode> collection = {};
+//   bool end = false;
+// }
 
-class Trie{
-  TrieNode root = TrieNode();
+// class Trie{
+//   TrieNode root = TrieNode();
 
-  insert(String data){
-   TrieNode current = root;
-   for(int i=0; i<data.length; i++){
-    String char = data[i];
-    current.collection.putIfAbsent(char, () => TrieNode());
-    current.collection[char]!;
-   }
-   current.end = true;
-  }
+//   insert(String data){
+//    TrieNode current = root;
+//    for(int i=0; i<data.length; i++){
+//     String char = data[i];
+//     current.collection.putIfAbsent(char, () => TrieNode());
+//     current.collection[char]!;
+//    }
+//    current.end = true;
+//   }
 
-  bool search(String data){
-    TrieNode current = root;
-    for(int i=0; i<data.length; i++){
-      String char = data[i];
-      if(!current.collection.containsKey(char)){
-        return false;
-      }
-    }
-    return true;
-  }
+//   bool search(String data){
+//     TrieNode current = root;
+//     for(int i=0; i<data.length; i++){
+//       String char = data[i];
+//       if(!current.collection.containsKey(char)){
+//         return false;
+//       }
+//     }
+//     return true;
+//   }
 
 
-}
+// }
 
-main(){
-  Trie trie = Trie();
+// main(){
+//   Trie trie = Trie();
 
-  trie.insert('sugith');
-  print(trie.search('sugithd'));
-}
+//   trie.insert('sugith');
+//   print(trie.search('sugithd'));
+// }
+

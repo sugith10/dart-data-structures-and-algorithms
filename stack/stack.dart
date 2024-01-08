@@ -1,51 +1,78 @@
-class Node {
-  int? data;
-  Node? prev;
-  Node(this.data);
-}
-
 class Stack {
-  Node? top;
-
-  push(int data){
-    Node newNode = Node(data);
-    if(top == null){
-      top = newNode;
-    }else{
-      newNode.prev = top;
-      top = newNode;
-    }
+  List<int> listStack = [];
+  push(int data) {
+    listStack.add(data);
   }
 
-  dispaly(){
-    if(top == null){
+  pop() {
+    int k = listStack.last;
+    listStack.removeLast();
+    return k;
+  }
+
+  peekAll() {
+    if (listStack.isEmpty) {
       print('empty');
-    }else{
-      print(top?.data);
+    } else {
+      print(listStack);
     }
   }
 
-  pop(){
-  
-      top = top?.prev;
-      dispaly();
-    
+// void reverse() {
+//     if (listStack.isNotEmpty) {
+//       int k = pop();
+//       reverse();
+//       insertAtBottom(k);
+//     }
+//   }
+
+//   void insertAtBottom(int data) {
+//     if (listStack.isEmpty) {
+//       push(data);
+//     } else {
+//       int k = pop();
+//       insertAtBottom(data); // Recursively insert at bottom
+//       push(k); // Push the element back onto the stack
+//     }
+//   }
+
+  List<int> temp = [];
+
+  reverse() {
+    if (listStack.length > 0) {
+      int k = pop();
+      temp.add(k);
+      reverse();
+    }
+    return temp;
+  }
+
+  newAdd() {
+    listStack = reverse();
+  }
+
+ int i =0;
+
+  newFindAll(List<int> arr){
+   
+    if(i<arr.length){
+      print(arr[i]);
+      i++;
+      newFindAll(arr);
+    }
   }
 }
 
-
-main(){
+main() {
   Stack stack = Stack();
-
+  stack.peekAll();
+  stack.push(10);
   stack.push(20);
-  stack.push(30);
-  stack.push(40);
-  stack.dispaly();
-  stack.pop();
-  stack.pop();
-  stack.pop();
   stack.push(50);
-  stack.dispaly();
+  stack.push(99);
   stack.pop();
-  
+  stack.peekAll();
+  stack.newAdd();
+  stack.peekAll();
+  stack.newFindAll(stack.listStack);
 }
