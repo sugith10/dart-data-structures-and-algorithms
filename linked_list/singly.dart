@@ -134,21 +134,20 @@ class LinkedList {
     }
   }
 
-  inertToList(List<int> nums){
-   Node? temp = head;
-   while(temp != null){
-    nums.add(temp.data!);
-    temp = temp.next;
-   }
+  inertToList(List<int> nums) {
+    Node? temp = head;
+    while (temp != null) {
+      nums.add(temp.data!);
+      temp = temp.next;
+    }
   }
 
-
-  reverse(){
+  reverse() {
     Node? current = head;
     Node? prev;
     Node? next;
 
-    while(current != null){
+    while (current != null) {
       next = current.next;
       current.next = prev;
       prev = current;
@@ -157,18 +156,43 @@ class LinkedList {
     head = prev;
     display();
   }
-  
-}
 
+  void deletePosition(int position) {
+    if (head == null) {
+      return;
+    }
+
+    Node? temp = head;
+    if (position == 0) {
+      head = temp?.next;
+      return;
+    }
+
+    for (int i = 0; temp != null && i < position - 1; i++) {
+      temp = temp.next!;
+    }
+
+    if (temp == null || temp.next == null) {
+      return;
+    }
+
+    Node? next = temp.next!.next;
+    temp.next = next;
+  }
+}
 
 main() {
   LinkedList list = LinkedList();
 
-  // list.display();
-  // list.addNode(1);
-  // list.addNode(2);
-  // list.addNode(3);
-  // list.display();
+  list.display();
+  list.addNode(1);
+  list.addNode(2);
+  list.addNode(3);
+  list.addNode(10);
+  list.addNode(20);
+  list.addNode(30);
+  list.deletePosition(3);
+  list.display();
   // list.removeElement(2);
   // list.display();
   // print('insert function');
@@ -185,18 +209,15 @@ main() {
   // list.inertToList(nums);
   // print(nums);
 
-  List<int> nums = [10,20,30,35,50,60,69];
+  // List<int> nums = [10,20,30,35,50,60,69];
 
-    listToLinked(){
-      for(int i in nums){
-        list.addNode(i);
-      }
-    }
+  //   listToLinked(){
+  //     for(int i in nums){
+  //       list.addNode(i);
+  //     }
+  //   }
 
-    listToLinked();
+  //   listToLinked();
 
-    list.reverse();
-
+  //   list.reverse();
 }
-
-
