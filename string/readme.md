@@ -16,50 +16,15 @@ In this example, `"Hello, World!"` serves as a string literal, and `myString` is
 
 Strings in Dart are versatile, accommodating letters, numbers, symbols, or any combination of characters. They play a pivotal role in representing textual information in programs.
 
-## Operations on Strings
 
-Explore various operations on strings:
-
-- **Concatenation:**
-
-  ```dart
-  String greeting = "Hello";
-  String name = "John";
-  String message = greeting + " " + name; // "Hello John"
-  ```
-
-- **String Interpolation:**
-
-  ```dart
-  String fullMessage = "$greeting $name"; // "Hello John"
-  ```
-
-- **Length:**
-
-  ```dart
-  int length = message.length; // 11
-  ```
-
-- **Substring Extraction:**
-
-  ```dart
-  String sub = message.substring(6); // "John"
-  ```
-
-- **Searching:**
-
-  ```dart
-  bool containsHello = message.contains("Hello"); // true
-  ```
-
-## Folder Structure
+## Folder Structure of Repository
 
 ### Inbuilt Methods
 
-This section provides an exhaustive coverage of almost all inbuilt methods available in the Dart programming language.
+The "methods" folder is exclusive coverage of almost all inbuilt methods available for String in the Dart programming language.
 
 ### Problem Solving
 
-The "Problem" folder is exclusively designed to address important problems related to strings, offering a practical approach to reinforce your understanding.
+The "problems" folder is exclusively designed to address important problems related to strings, offering a practical approach to reinforce your understanding.
 
 Feel free to explore, learn, and contribute to the ever-growing knowledge base in string operations in Dart!
