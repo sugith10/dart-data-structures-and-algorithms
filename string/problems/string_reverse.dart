@@ -8,6 +8,7 @@
 /// String reversed = Solutions().reverseString('sugith');
 /// print(reversed); // Output: htigus
 /// ```
+
 class Solutions {
   String reverseString(String input) {
     if (input.length <= 1) {
@@ -18,7 +19,7 @@ class Solutions {
 }
 
 void main() {
-  // Example of using the reverseString function
+  
   String reversed = Solutions().reverseString('sugith');
   print(reversed); // Output: htigus
 }

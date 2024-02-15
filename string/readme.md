@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to the "String Operations in Dart" section of our Data Structures and Algorithms repository! Here, we delve into the intricate world of string manipulation in Dart, offering a comprehensive guide and problem-solving resources.
+Welcome to the "String Operations in Dart" section of our Dart Data Structures and Algorithms repository! Here, we delve into the intricate world of string manipulation in Dart, offering a comprehensive guide and problem-solving resources.
 
 ## String Representation in Dart
 

@@ -1,42 +1,16 @@
-main() {
-
-
-  
-  // List<int> fibNums = Solution().fib(5);
-
-  // print(fibNums);
-
-  // List<int> names = [10,20,40,50,60];
-
-//   List<String> strs = ["flower","flow","flight"];
-//  print( Solution().longestCommonPrefix(strs));
-
-  List<int> numbers = [10,11,23,23,23,53,64,66,69];
-
-//  numbers = numbers.toSet().toList();
-
-  // print(numbers);
-
-}
+  /// Find the longest common prefix among a list of strings.
+  ///
+  /// Given a list of strings [strs], this function sorts the list and finds
+  /// the longest common prefix among the strings. It compares the first and
+  /// last string in the sorted list to determine the common prefix.
+  ///
+  /// Example:
+  /// ```dart
+  /// Solution().longestCommonPrefix(["flower", "flow", "flight"]);
+  /// // Output: "fl"
+  /// ```
 
 class Solution {
-
-
-   List<int> fib(int n) {
-    List<int> numbers = [];
-    int a = 0, b = 1;
-    for (int i = 0; i < n; i++) {
-      numbers.add(a);
-      int temp = a;
-      a = b;
-      b = temp + b;
-    }
-
-    return numbers;
-  }
-
-
-
   String longestCommonPrefix(List<String> strs) {
     strs.sort();
     String firstStr = strs[0];
@@ -51,4 +25,12 @@ class Solution {
       return firstStr.substring(0, count);
     }
   }
+}
+
+main() {
+  Solution solution = Solution();
+
+  List<String> words = ["flower", "flow", "flight"];
+  String commonPrefix = solution.longestCommonPrefix(words);
+  print("Longest Common Prefix: $commonPrefix");
 }
