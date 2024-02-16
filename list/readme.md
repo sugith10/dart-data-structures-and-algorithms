@@ -27,4 +27,3 @@ The "methods" folder comprehensively covers almost all inbuilt methods available
 The "problems" folder is dedicated to addressing important problems related to lists, offering a practical approach to reinforce your understanding.
 
 Feel free to explore, learn, and contribute to the growing knowledge base in list operations in Dart!
-```

@@ -52,14 +52,23 @@ class HashTable {
     }
   }
 
-  void get(String key) {
-    int index = _getIndex(key);
-    if (table?[index] == null) {
-      print('Empty');
-    } else {
-      print(table?[index]?.data);
+void get(String key) {
+  int index = _getIndex(key);
+  if (table?[index] == null) {
+    print('Empty');
+  } else {
+    Node? temp = table?[index];
+    while (temp != null) {
+      if (temp.key == key) {
+        print(temp.data);
+        return;
+      }
+      temp = temp.next;
     }
+    print('Key not found');
   }
+}
+
 
  void getAll() {
   for (int i = 0; i < size; i++) {
