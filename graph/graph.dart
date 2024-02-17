@@ -1,39 +1,39 @@
-class Graph{
+class Graph {
   Map<int, List<int>> graph = {};
 
-  insert(int vertex, int edge, [bool bidir = false]){
-    if(!graph.containsKey(vertex)){
+  void insert(int vertex, int edge, [bool bidir = false]) {
+    if (!graph.containsKey(vertex)) {
       graph[vertex] = [];
     }
-    if(!graph.containsKey(edge)){
+    if (!graph.containsKey(edge)) {
       graph[edge] = [];
     }
     graph[vertex]!.add(edge);
-    if(bidir){
+    if (bidir) {
       graph[edge]!.add(vertex);
     }
   }
 
-    showEdges(int vertex) {
+  void showEdges(int vertex) {
     if (graph.containsKey(vertex)) {
       print(graph[vertex]);
-    }else{
+    } else {
       print('not found');
     }
   }
 
-   bfs(int vertex){
+  void bfs(int vertex) {
     Set<int> visited = {};
     List<int> queue = [];
 
     queue.add(vertex);
     visited.add(vertex);
 
-    while(queue.isNotEmpty){
+    while (queue.isNotEmpty) {
       int current = queue[0];
       queue.removeAt(0);
-      for(int i in graph[current]!){
-        if(!visited.contains(i)){
+      for (int i in graph[current]!) {
+        if (!visited.contains(i)) {
           visited.add(i);
           queue.add(i);
         }
@@ -42,26 +42,26 @@ class Graph{
     print(visited);
   }
 
-
-  dfs(int vertex){
-    if(graph.containsKey(vertex)){
+  void dfs(int vertex) {
+    if (graph.containsKey(vertex)) {
       Set<int> visited = {};
-      dfshelper(vertex, visited);
+      _dfshelper(vertex, visited);
       print(visited);
-    }else{
+    } else {
       print('vertex not found in graph');
     }
   }
-  dfshelper(int vertex, Set<int> visited){
+
+  void _dfshelper(int vertex, Set<int> visited) {
     visited.add(vertex);
-    for(int i in graph[vertex]!){
-      if(!visited.contains(i)){
-        dfshelper(i, visited);
+    for (int i in graph[vertex]!) {
+      if (!visited.contains(i)) {
+        _dfshelper(i, visited);
       }
     }
   }
 
-    void display() {
+  void display() {
     print("{");
     graph.forEach((key, edges) {
       print("$key : $edges");
@@ -70,8 +70,7 @@ class Graph{
   }
 }
 
-
-main(){
+void main() {
   Graph graph = Graph();
   graph.insert(10, 14);
   graph.insert(10, 15);
@@ -81,7 +80,6 @@ main(){
   graph.insert(17, 20);
   graph.insert(17, 21);
   // graph.bfs(10);
-  graph.dfs(10);
-  // graph.display();
+  // graph.dfs(10);
+  graph.display();
 }
-

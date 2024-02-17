@@ -1,56 +1,53 @@
-class Node{
+class Node {
   int? data;
   Node? next;
 
   Node(this.data);
 }
 
-class Queue{
+class Queue {
   Node? head;
   Node? tail;
 
-  enqueue(int data){
+  void enqueue(int data) {
     Node newNode = Node(data);
-    if(head == null){
+    if (head == null) {
       head = tail = newNode;
-    }else{
+    } else {
       tail?.next = newNode;
       tail = newNode;
     }
   }
 
-  display(){
-    if(head == null){
-      print('empty');
-    }else{
+ void display() {
+    if (head == null) {
+      print('Empty.');
+    } else {
       print(head?.data);
     }
   }
 
-  dequeue(){
-    if(head == null){
-      print('empty');
-    }else{
+ void dequeue() {
+    if (head == null) {
+      print('Empty.');
+    } else {
       head = head?.next;
     }
     display();
   }
-
-  
 }
 
-main(){
- Queue queue = Queue();
- queue.enqueue(10);
- queue.enqueue(20);
- queue.enqueue(30);
- queue.enqueue(40);
+main() {
+  Queue queue = Queue();
+  queue.enqueue(10);
+  queue.enqueue(20);
+  queue.enqueue(30);
+  queue.enqueue(40);
 
- queue.display();
+  queue.display();
 
- queue.dequeue();
- queue.dequeue();
- queue.dequeue();
- queue.dequeue();
+  queue.dequeue();
+  queue.dequeue();
+  queue.dequeue();
+  queue.dequeue();
 }
-

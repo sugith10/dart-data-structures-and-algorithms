@@ -9,7 +9,7 @@ class LinkedList {
   Node? head;
   Node? tail;
 
-  addNode(int data) {
+  void addNode(int data) {
     Node newNode = Node(data);
     if (head == null) {
       head = newNode;
@@ -20,9 +20,9 @@ class LinkedList {
     tail = newNode;
   }
 
-  display() {
+  void display() {
     if (head == null) {
-      print('empty');
+      print('Empty.');
     } else {
       Node? temp = head;
       while (temp != null) {
@@ -32,22 +32,22 @@ class LinkedList {
     }
   }
 
-  headRemove() {
+  void headRemove() {
     if (head == null) {
-      print('empty');
+      print('Empty.');
     } else {
       if (head == tail) {
         head = null;
         tail = null;
-        print("head removed");
+        print("Head removed.");
       } else {
         head = head?.next;
-        print("head removed");
+        print("Head removed.");
       }
     }
   }
 
-  tailRemove() {
+  void tailRemove() {
     if (tail == null) {
       print('empty');
     } else {
@@ -63,12 +63,12 @@ class LinkedList {
         }
         tail = prev;
         tail?.next = null;
-        print('tail removed');
+        print('Tail removed.');
       }
     }
   }
 
-  removeElement(int data) {
+  void removeElement(int data) {
     if (head?.data == data) {
       headRemove();
     } else {
@@ -79,7 +79,7 @@ class LinkedList {
         temp = temp.next;
       }
       if (temp == null) {
-        print('not found');
+        print('Not able to find');
       }
       if (temp == tail) {
         tail = prev;
@@ -89,13 +89,13 @@ class LinkedList {
     }
   }
 
-  inserAt(int nextTo, int data) {
+  void inserAt(int nextTo, int data) {
     Node? temp = head;
     while (temp?.data != nextTo && temp != null) {
       temp = temp.next;
     }
     if (temp == null) {
-      print("no $nextTo found");
+      print("Not able to find $nextTo.");
       return;
     }
     Node newNode = Node(data);
@@ -109,7 +109,7 @@ class LinkedList {
     temp.next = newNode;
   }
 
-  insertAtPrev(int target, int data) {
+  void insertAtPrev(int target, int data) {
     if (head == null) {
       print("empty");
     } else {
@@ -134,7 +134,7 @@ class LinkedList {
     }
   }
 
-  inertToList(List<int> nums) {
+  void inertToList(List<int> nums) {
     Node? temp = head;
     while (temp != null) {
       nums.add(temp.data!);
@@ -142,7 +142,7 @@ class LinkedList {
     }
   }
 
-  reverse() {
+  void reverse() {
     Node? current = head;
     Node? prev;
     Node? next;
@@ -193,31 +193,29 @@ main() {
   list.addNode(30);
   list.deletePosition(3);
   list.display();
-  // list.removeElement(2);
-  // list.display();
-  // print('insert function');
-  // list.insertAtPrev(2, 4);
-  // list.display();
-  //   print("last element ");
-  //   print(list.tail?.data);
-  //   list.headRemove();
-  //   list.display();
-  //   list.tailRemove();
-  //   list.display();
+  list.removeElement(2);
+  list.display();
+  print('insert function');
+  list.insertAtPrev(2, 4);
+  list.display();
+  print("last element ");
+  print(list.tail?.data);
+  list.headRemove();
+  list.display();
+  list.tailRemove();
+  list.display();
 
-  // List<int> nums = [];
-  // list.inertToList(nums);
-  // print(nums);
+  List<int> nums = [];
+  list.inertToList(nums);
+  print(nums);
 
-  // List<int> nums = [10,20,30,35,50,60,69];
+  listToLinked() {
+    for (int i in nums) {
+      list.addNode(i);
+    }
+  }
 
-  //   listToLinked(){
-  //     for(int i in nums){
-  //       list.addNode(i);
-  //     }
-  //   }
+  listToLinked();
 
-  //   listToLinked();
-
-  //   list.reverse();
+  list.reverse();
 }

@@ -9,7 +9,7 @@ class Node {
 class BST {
   Node? root;
 
-  add(int data) {
+  void add(int data) {
     Node newNode = Node(data);
     if (root == null) {
       root = newNode;
@@ -42,19 +42,19 @@ class BST {
     }
   }
 
-  search(int data) {
+  void search(int data) {
     if (root == null) {
       print('root is null');
     } else {
       Node? temp = root;
-      while(temp != null){
-        if(temp.data == data){
+      while (temp != null) {
+        if (temp.data == data) {
           print(' value found ');
           return;
-        }else{
-          if(data < temp.data){
+        } else {
+          if (data < temp.data) {
             temp = temp.left;
-          }else{
+          } else {
             temp = temp.right;
           }
         }
@@ -64,12 +64,12 @@ class BST {
   }
 
   //traverse
-  inOrder(Node? root) {
+  void inOrder(Node? root) {
     print('');
     inOrderTraversal(root);
   }
 
-  inOrderTraversal(Node? root) {
+  void inOrderTraversal(Node? root) {
     if (root != null) {
       inOrderTraversal(root.left);
       stdout.write('${root.data} ');
@@ -77,12 +77,12 @@ class BST {
     }
   }
 
-  preOrder(Node? root) {
+  void preOrder(Node? root) {
     print('');
     preOrderTraversal(root);
   }
 
-  preOrderTraversal(Node? root) {
+  void preOrderTraversal(Node? root) {
     if (root != null) {
       stdout.write(root.data);
       preOrderTraversal(root.left);
@@ -90,12 +90,12 @@ class BST {
     }
   }
 
-  postOrder(Node? root) {
+  void postOrder(Node? root) {
     print('');
     postOrderTraversal(root);
   }
 
-  postOrderTraversal(Node? root) {
+  void postOrderTraversal(Node? root) {
     print(' ');
     if (root != null) {
       postOrderTraversal(root.left);
@@ -105,7 +105,7 @@ class BST {
   }
 
   //bst or not
-  bstOrNot(Node? root) {
+  bool bstOrNot(Node? root) {
     int k = 0;
     inOrder(Node? root) {
       if (root != null) {
@@ -152,33 +152,31 @@ class BST {
   }
 
   //closest value
-   int closestValue(int target) {
-  if (root == null) {
-    print('BST is empty');
-    return -1; 
-  }
-
-  Node? current = root;
-  int closest = current!.data;
-
-  while (current != null) {
-    if ((target - closest).abs() > (target - current.data).abs()) {
-      closest = current.data;
+  int closestValue(int target) {
+    if (root == null) {
+      print('BST is empty');
+      return -1;
     }
 
-    if (target < current.data) {
-      current = current.left;
-    } else if(target > current.data){
-      current = current.right;
-    }else{
-      break;
+    Node? current = root;
+    int closest = current!.data;
+
+    while (current != null) {
+      if ((target - closest).abs() > (target - current.data).abs()) {
+        closest = current.data;
+      }
+
+      if (target < current.data) {
+        current = current.left;
+      } else if (target > current.data) {
+        current = current.right;
+      } else {
+        break;
+      }
     }
+
+    return closest;
   }
-
-  return closest;
-}
-
-
 }
 
 main() {
@@ -203,7 +201,7 @@ main() {
   bst.add(1);
   bst.add(2);
   bst.add(14);
-  
+
   // bst.bstOrNot(bst.root);
   bst.inOrder(bst.root);
   print('');
@@ -214,5 +212,4 @@ main() {
   // bst.delete(bst.root, 87);
   // bst.delete(bst.root, 210);
   // bst.inOrder(bst.root);
-
 }

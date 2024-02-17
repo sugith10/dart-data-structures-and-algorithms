@@ -58,5 +58,5 @@ void main() {
   MinHeap minHeap = MinHeap();
   minHeap.insert([21, 3, 19, 5, 6]);
   minHeap.remove();
-  print(minHeap.heap); // Output: [5, 6, 19, 21]
+  print(minHeap.heap); 
 }

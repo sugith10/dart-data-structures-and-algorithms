@@ -26,10 +26,8 @@ void remove() {
 
   int maxVal = heap.removeLast();
   
-
   heap[0] = maxVal;
   
-
   heapifyDown(0);
 }
 
@@ -37,7 +35,6 @@ void heapifyDown(int currentIdx) {
 
   int maxValIdx = currentIdx;
   
-
   int leftIdx = 2 * currentIdx + 1;
   int rightIdx = 2 * currentIdx + 2;
 
@@ -54,7 +51,6 @@ void heapifyDown(int currentIdx) {
     heapifyDown(maxValIdx);
   }
 }
-
 
   void swap(int currentIdx, int parentIdx) {
     int temp = heap[currentIdx];

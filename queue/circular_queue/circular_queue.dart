@@ -1,49 +1,47 @@
-class Node{
+class Node {
   int data;
   Node? next;
   Node(this.data);
 }
 
-class CircularQueue{
+class CircularQueue {
   Node? head;
   Node? tail;
 
-  enque(int data){
+  void enque(int data) {
     Node newNode = Node(data);
-    if(head == null){
+    if (head == null) {
       head = newNode;
-    }else{
+    } else {
       tail?.next = newNode;
     }
     tail = newNode;
     tail?.next = head;
   }
 
-  dequeue(){
-    if(head == null){
-      print('empty');
-    }else{
-      tail?.next =head?.next;
+  void dequeue() {
+    if (head == null) {
+      print('Empty.');
+    } else {
+      tail?.next = head?.next;
       head = head?.next;
     }
   }
 
-  peek(){
-    if(head == null){
-      print('empty');
-    }else{
+  void peek() {
+    if (head == null) {
+      print('Empty.');
+    } else {
       print(head?.data);
     }
   }
 }
 
-
-main(){
-  CircularQueue circularQueue = CircularQueue(); 
+main() {
+  CircularQueue circularQueue = CircularQueue();
   circularQueue.enque(10);
   circularQueue.enque(20);
   circularQueue.enque(30);
   circularQueue.dequeue();
   circularQueue.peek();
 }
-

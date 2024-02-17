@@ -1,52 +1,50 @@
-class Node{
+class Node {
   int data;
   Node? next;
   Node(this.data);
 }
 
-class Doque{
+class Doque {
   Node? head;
   Node? tail;
 
-  enqueuefront(int data){
+  void enqueuefront(int data) {
     Node newNode = Node(data);
-    if(head == null){
+    if (head == null) {
       head = newNode;
       tail = newNode;
-    }else{
+    } else {
       newNode.next = head;
       head = newNode;
     }
   }
 
-  enqueueback(int data){
+  void enqueueback(int data) {
     Node newNode = Node(data);
-    if(head == null){
+    if (head == null) {
       head = newNode;
       tail = newNode;
-    }else{
+    } else {
       tail?.next = newNode;
       tail = newNode;
     }
   }
 
-  dequeueFront(){
-    if(head == null){
+  void dequeueFront() {
+    if (head == null) {
       print('empty');
-    }else{
+    } else {
       head = head?.next;
     }
   }
 
-  
-
-  dequeueBack(){
-    if(head == null){
+  void dequeueBack() {
+    if (head == null) {
       print('empty');
-    }else{
+    } else {
       Node? temp = head;
       Node? prev;
-      while(temp?.next != null){
+      while (temp?.next != null) {
         prev = temp;
         temp = temp?.next;
       }
@@ -55,12 +53,12 @@ class Doque{
     }
   }
 
-  peekAll(){
-    if(head == null){
+  void peekAll() {
+    if (head == null) {
       print('empty');
-    }else{
+    } else {
       Node? temp = head;
-      while(temp != null){
+      while (temp != null) {
         print(temp.data);
         temp = temp.next;
       }
@@ -68,8 +66,7 @@ class Doque{
   }
 }
 
-
-main(){
+main() {
   Doque doque = Doque();
   doque.enqueueback(20);
   doque.enqueueback(50);

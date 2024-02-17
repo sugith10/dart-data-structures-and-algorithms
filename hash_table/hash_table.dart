@@ -41,14 +41,14 @@ class HashTable {
           } else {
             prev.next = temp.next;
           }
-          print('Element removed');
+          print('Element removed.');
           return;
         }
         prev = temp;
         temp = temp.next;
       }
     } else {
-      print('Value not found');
+      print('Value not found.');
     }
   }
 
@@ -65,7 +65,7 @@ class HashTable {
         }
         temp = temp.next;
       }
-      print('Key not found');
+      print('Key not found.');
     }
   }
 
@@ -79,7 +79,7 @@ class HashTable {
           temp = temp.next;
         }
       } else {
-        print('At index $i, there is no value found');
+        print('At index $i, there is no value found.');
       }
     }
   }
@@ -90,12 +90,12 @@ class HashTable {
     while (temp != null) {
       if (temp.key == key) {
         temp.data = newData;
-        print('Value updated');
+        print('Value updated.');
         return;
       }
       temp = temp.next;
     }
-    print('Value not found');
+    print('Value not found.');
   }
 }
 

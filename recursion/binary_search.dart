@@ -5,7 +5,7 @@ main(){
 }
 
 class BinarySearch{
-  recursion(List<int> nums, int key, int high, int low){
+ void recursion(List<int> nums, int key, int high, int low){
     if(low<=high){
       int mid =  (high+low)~/2;
       if(nums[mid]==key){

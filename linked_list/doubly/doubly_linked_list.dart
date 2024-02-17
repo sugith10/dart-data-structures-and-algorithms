@@ -10,7 +10,7 @@ class LinkedList {
   Node? head;
   Node? tail;
 
-  addNode(int data) {
+  void addNode(int data) {
     Node newNode = Node(data);
     if (head == null) {
       head = newNode;
@@ -21,7 +21,7 @@ class LinkedList {
     tail = newNode;
   }
 
-  display() {
+  void display() {
     if (head == null) {
       print("empty");
     } else {
@@ -33,7 +33,7 @@ class LinkedList {
     }
   }
 
-  displayBackward() {
+  void displayBackward() {
     if (tail == null) {
       print("empty");
     } else {
@@ -45,7 +45,7 @@ class LinkedList {
     }
   }
 
-  delete(int data) {
+  void delete(int data) {
     if (head == null) {
       print('list is empty');
     } else {
@@ -84,7 +84,7 @@ class LinkedList {
     temp?.next = newNode;
   }
 
-  sortedListDel() {
+  void sortedListDel() {
     if (head == null) {
       print("empty");
     } else {
@@ -108,7 +108,7 @@ class LinkedList {
     }
   }
 
-  sortedListDelete() {
+  void sortedListDelete() {
     if (head == null) {
       print('empty');
     } else {
@@ -123,7 +123,7 @@ class LinkedList {
     }
   }
 
-  addToList(List<int>? numbers) {
+  void addToList(List<int>? numbers) {
     if (head == null) {
       print("list is empty");
     } else {
@@ -135,9 +135,8 @@ class LinkedList {
   }
 }
 
-main() {
+void main() {
   LinkedList list = LinkedList();
-  //List<int> numbers = [];
 
   list.display();
   list.addNode(10);
@@ -148,14 +147,7 @@ main() {
   list.addNode(50);
   list.addNode(50);
   list.addNode(60);
-  // list.sortedListDel();
-  // list.sortedListDelete();
-  // list.delete(20);
-  // list.display();
+  
   list.insertAt(30, 35);
   list.display();
-  // list.addToList(numbers);
-  // print(numbers);
-  // print('list backward');
-  // list.displayBackward();
 }
