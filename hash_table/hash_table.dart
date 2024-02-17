@@ -52,39 +52,37 @@ class HashTable {
     }
   }
 
-void get(String key) {
-  int index = _getIndex(key);
-  if (table?[index] == null) {
-    print('Empty');
-  } else {
-    Node? temp = table?[index];
-    while (temp != null) {
-      if (temp.key == key) {
-        print(temp.data);
-        return;
-      }
-      temp = temp.next;
-    }
-    print('Key not found');
-  }
-}
-
-
- void getAll() {
-  for (int i = 0; i < size; i++) {
-    if (table?[i] != null) {
-      Node? temp = table?[i];
-      print('At index $i:');
+  void get(String key) {
+    int index = _getIndex(key);
+    if (table?[index] == null) {
+      print('Empty');
+    } else {
+      Node? temp = table?[index];
       while (temp != null) {
-        print('${temp.data}');
+        if (temp.key == key) {
+          print(temp.data);
+          return;
+        }
         temp = temp.next;
       }
-    } else {
-      print('At index $i, there is no value found');
+      print('Key not found');
     }
   }
-}
 
+  void getAll() {
+    for (int i = 0; i < size; i++) {
+      if (table?[i] != null) {
+        Node? temp = table?[i];
+        print('At index $i:');
+        while (temp != null) {
+          print('${temp.data}');
+          temp = temp.next;
+        }
+      } else {
+        print('At index $i, there is no value found');
+      }
+    }
+  }
 
   void update(String key, dynamic newData) {
     int index = _getIndex(key);
