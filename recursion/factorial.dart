@@ -1,3 +1,7 @@
+main(){
+  int k =facto(10);
+  print(k);
+}
 
  int facto(int a){
     if(a>0){
@@ -9,7 +13,3 @@
       return 0;
   }
 
-main(){
-  int k =facto(10);
-  print(k);
-}
