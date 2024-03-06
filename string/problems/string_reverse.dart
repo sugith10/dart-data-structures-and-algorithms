@@ -19,7 +19,6 @@ class Solutions {
 }
 
 void main() {
-  
   String reversed = Solutions().reverseString('sugith');
-  print(reversed); // Output: htigus
+  print(reversed);
 }

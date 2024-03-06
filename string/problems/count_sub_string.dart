@@ -13,7 +13,8 @@
 ///
 /// Example:
 
-int countSubstringOccurrences(String mainString, String substring) {
+class Solution{
+  int countSubstringOccurrences(String mainString, String substring) {
   int count = 0;
   int index = 0;
 
@@ -24,12 +25,13 @@ int countSubstringOccurrences(String mainString, String substring) {
 
   return count;
 }
+}
 
 void main() {
   String mainString = 'bromybbro';
   String substring = 'bro';
 
-  int occurrences = countSubstringOccurrences(mainString, substring);
+  int occurrences = Solution().countSubstringOccurrences(mainString, substring);
 
   print("The substring '$substring' appears $occurrences times in the string.");
 }
